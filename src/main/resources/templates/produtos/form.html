@@ -2,19 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulário de Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">    
 </head>
 
 <body>
     <h1>Formulário de Produto</h1>
+    
     <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post">
-        <input type="hidden" th:field="*{id}" />
-        <label for="nome">Nome:</label>
-        <input type="text" th:field="*{nome}" id="nome" /><br/>
-        <label for="preco">Preço:</label>
-        <input type="text" th:field="*{preco}" id="preco" /><br />
-        <button type="submit">Salvar</button>
+        <div class="container md-6">
+            <div class="row">
+                <div class="col-md4">
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" type="text" th:field="*{nome}" id="nome" />               
+                </div>
+
+                <div class="col-md4">
+                    <label for="categoria">Categoria:</label>
+                    <input class="form-control" type="text" th:field="*{categoria}" id="categoria" />               
+                </div>
+
+                <div class="col-md4">
+                    <label for="descricao">Descrição:</label>
+                    <input class="form-control" type="text" th:field="*{descricao}" id="descricao" />               
+                </div>
+                
+                <div class="col-md4">                
+                    <label for="preco">Preço:</label>
+                    <input class="form-control" type="text" th:field="*{preco}" id="preco" /><br />
+                </div>
+                <div class="col-md4">              
+                    <button class="btn btn-success" type="submit">Salvar</button>
+                </div>
+            </div>
+        </div>
     </form><a th:href="@{/produtos}">Voltar</a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 
 </html>

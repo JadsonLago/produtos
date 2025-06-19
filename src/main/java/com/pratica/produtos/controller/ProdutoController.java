@@ -26,7 +26,7 @@ public class ProdutoController {
         return "produtos/lista";
     }
     
-        @GetMapping("/novo")
+    @GetMapping("/novo")
     public String novoProdutoForm(Model model) {
         model.addAttribute("produto", new Produto());
         return "produtos/form";

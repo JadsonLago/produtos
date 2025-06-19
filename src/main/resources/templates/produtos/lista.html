@@ -2,16 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Lista de Produtos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulário de Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"> 
 </head>
 
 <body>
+    <div class="container md-6">
     <h1>Lista de Produtos</h1><a th:href="@{/produtos/novo}">Novo Produto</a>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
                 <th>Preço</th>
                 <th>Ações</th>
             </tr>
@@ -20,12 +26,18 @@
             <tr th:each="produto : ${produtos}">
                 <td th:text="${produto.id}"></td>
                 <td th:text="${produto.nome}"></td>
+                <td th:text="${produto.categoria}"></td>
+                <td th:text="${produto.descricao}"></td>
                 <td th:text="${produto.preco}"></td>
-                <td><a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a><a
-                        th:href="@{/produtos/deletar/{id}(id=${produto.id})}">Deletar</a></td>
+                <td>
+                    <a class = "btn btn-primary" th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
+                    <a class = "btn btn-danger" th:href="@{/produtos/deletar/{id}(id=${produto.id})}">Deletar</a>
+                </td>
             </tr>
         </tbody>
     </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 
 </html>
